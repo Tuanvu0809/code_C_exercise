@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-/*bat 1 bit*/
-#define ON_BIT_N(A,x)       A= A|(1<<x) 
+/*tat 1 bit*/
+#define OFF_BIT_N(A,x)      A = A&(~(1<<x))
 
 void printBinaryCompact(unsigned int n) {
     printf("a= %d\t ",n);
@@ -12,11 +12,11 @@ void printBinaryCompact(unsigned int n) {
 
 int main()
 {
-    int a= 0;
-
+    int a= 255;
+    
     printBinaryCompact(a);
-    ON_BIT_N(a,1);
-    printBinaryCompact(a);  
-
+    OFF_BIT_N(a,1);
+    printBinaryCompact(a);
+  
     return 0;
 }
