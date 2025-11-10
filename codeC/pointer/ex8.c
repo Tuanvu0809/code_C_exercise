@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-// Dùng con trỏ để tính tổng các phần tử mảng.
+// Viết hàm trả về con trỏ trỏ tới phần tử lớn nhất trong mảng.
 int *mangnhap(int n)
 {
     int *A = (int*) malloc(sizeof(int) * n);
@@ -12,33 +12,41 @@ int *mangnhap(int n)
 }
 void inmang(int *A, int n)
 {
-    for(int i=0; i<n;i++)
+     for(int i=0; i<n;i++)
     {
         printf("%d\t",*(A+i));
-      
+        
     }
     printf("\n");
 }
-int tinhtong(int *A,int n)
+int *maxptr_find(int *A,int n)
 {
-    int  tong =0 ;
+    int *max = (int *) malloc( sizeof(int) );
+    *max = *A;
     for(int i=0; i<n;i++)
     {
-        tong = tong + *(A+i);
-
+        if(*max< *(A+i))
+        {
+            *max = *(A+i);
+        }
+      
     }
-    return tong;
-}    
+    return max;
+}
 int main()
 {
-    int n;
+
+     int n;
     printf("nhap n: ");
     scanf("%d",&n);
-    int *manggiatri;
+    int *manggiatri, *maxptr;
     manggiatri = mangnhap(n);
     inmang(manggiatri,n);
-    printf("Tong mang = %d\n", tinhtong(manggiatri,n));
-    free(manggiatri);
-    return 0;
+    maxptr = maxptr_find(manggiatri,n);
 
+    printf("gia tri lon nhat la :%d\n ", *maxptr);
+
+    free(manggiatri);
+    free(maxptr);
+    return 0;
 }
