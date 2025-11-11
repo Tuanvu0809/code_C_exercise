@@ -13,21 +13,20 @@ float chia(float a, float b)
     return a / b; 
 }
 
-// Kiểu con trỏ hàm (hàm nhận 2 float và trả về float)
 typedef float (*pheptoan_ptr)(float, float);
 
 int main()
 {
     float a, b, ketqua;
-    char op;
+    char tinh;
 
     printf("Nhap bieu thuc :");
-    scanf("%f %c %f", &a, &op, &b);
+    scanf("%f %c %f", &a, &tinh, &b);
 
 
     pheptoan_ptr hamchon = NULL;
 
-    switch(op)
+    switch(tinh)
     {
         case '+': hamchon = cong; break;
         case '-': hamchon = tru; break;

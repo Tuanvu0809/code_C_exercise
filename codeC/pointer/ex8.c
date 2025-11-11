@@ -36,7 +36,7 @@ int *maxptr_find(int *A,int n)
 int main()
 {
 
-     int n;
+    int n;
     printf("nhap n: ");
     scanf("%d",&n);
     int *manggiatri, *maxptr;
